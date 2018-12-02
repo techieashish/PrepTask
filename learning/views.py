@@ -1,14 +1,22 @@
 from django.shortcuts import render
 from .models import University, Student, Classes
 from django.db.models import Count
+from .serializers import StudentSerializers, UniversitySerializer
 from rest_framework import viewsets
-from rest_framework.response import Response
-from .forms import UniversityForm, StudentForm, ClassesForm
-from .serializers import StudentSerializers, UniversitySerializer, ClassesSerializers
 
 
 def index(request):
     return render(request=request, template_name="hello.html")
+
+
+class StudentView(viewsets.ModelViewSet):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializers()
+
+
+class UniversityView(viewsets.ModelViewSet):
+    queryset = University.objects.all()
+    serializer_class = UniversitySerializer()
 
 # Used to learn different ORM techniques
 def query_set_practice(request):
