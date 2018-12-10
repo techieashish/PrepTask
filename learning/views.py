@@ -3,20 +3,16 @@ from .models import University, Student, Classes
 from django.db.models import Count
 from .serializers import StudentSerializers, UniversitySerializer
 from rest_framework import viewsets
-<<<<<<< HEAD
 from rest_framework.response import Response
 from .forms import UniversityForm, StudentForm, ClassesForm, Registration, Login
 from .serializers import StudentSerializers, UniversitySerializer, ClassesSerializers
 from django.contrib.auth import login, logout, authenticate
-=======
->>>>>>> 840ea407ff60084bc65f994dd5450e0f4d75a1a6
 
 
 def index(request):
     return render(request=request, template_name="hello.html")
 
 
-<<<<<<< HEAD
 def UserRegistration(request):
     form = Registration(request.POST or None)
     if form.is_valid():
@@ -30,6 +26,7 @@ def UserRegistration(request):
         login(request, user)
         return redirect("learn:index")
     return render(request, "hello.html", {"form": form})
+
 
 def user_login(request):
     form = Login(request.POST or None)
@@ -62,7 +59,7 @@ class UniveristyViewSet(viewsets.ModelViewSet):
     queryset = University.objects.all()
     serializer_class = UniversitySerializer
 
-=======
+
 class StudentView(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializers()
@@ -71,7 +68,7 @@ class StudentView(viewsets.ModelViewSet):
 class UniversityView(viewsets.ModelViewSet):
     queryset = University.objects.all()
     serializer_class = UniversitySerializer()
->>>>>>> 840ea407ff60084bc65f994dd5450e0f4d75a1a6
+
 
 # Used to learn different ORM techniques
 
@@ -99,4 +96,3 @@ def query_set_practice(request):
 
     return render(request=request, template_name="message.html", context={"message": queryset})
 
-def break_commit(request):
