@@ -99,3 +99,4 @@ def query_set_practice(request):
 
     return render(request=request, template_name="message.html", context={"message": queryset})
 
+def break_commit(request):
