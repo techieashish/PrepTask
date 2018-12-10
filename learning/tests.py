@@ -10,7 +10,9 @@ class UniversityTestCase(TestCase):
     def test_university(self):
         e2 = University.objects.get(name="IIT")
         self.assertEqual(e2.courses, "Engineering")
-
+        e3 = University.objects.get(courses="Engineering")
+        self.assertEqual(e3.courses, "MIT")
+        
 
 class StudentTestCase(TestCase):
 
