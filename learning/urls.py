@@ -3,13 +3,6 @@ from . import views
 from rest_framework.routers import DefaultRouter, url
 
 router = DefaultRouter()
-<<<<<<< HEAD
-router.register(r"student", views.StudentViewSet)
-
-urlpatterns = [
-    url('^', include(router.urls)),
-    url(r'^$', views.index, name="index_page"),
-=======
 router.register(r"university", viewset=views.UniversityView, base_name="university")
 router.register(r"student", views.StudentView, base_name="student")
 
