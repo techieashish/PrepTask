@@ -8,9 +8,9 @@ from .forms import UniversityForm, StudentForm, ClassesForm, Registration, Login
 from .serializers import StudentSerializers, UniversitySerializer, ClassesSerializers
 from django.contrib.auth import login, logout, authenticate
 
+
 def index(request):
     return render(request=request, template_name="hello.html")
-
 
 
 def UserRegistration(request):
@@ -26,6 +26,7 @@ def UserRegistration(request):
         login(request, user)
         return redirect("learn:index")
     return render(request, "hello.html", {"form": form})
+
 
 def user_login(request):
     form = Login(request.POST or None)
@@ -58,7 +59,7 @@ class UniveristyViewSet(viewsets.ModelViewSet):
     queryset = University.objects.all()
     serializer_class = UniversitySerializer
 
-=======
+
 class StudentView(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializers()
@@ -95,4 +96,3 @@ def query_set_practice(request):
 
     return render(request=request, template_name="message.html", context={"message": queryset})
 
-def break_commit(request):
